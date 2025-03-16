@@ -1,0 +1,26 @@
+services:
+  app:
+    image: node:18-alpine  # Usa una imagen de Node.js sin necesidad de instalar nada en el host
+    container_name: node_dev
+    working_dir: /app
+    volumes:
+      - C:/Users/cucho/desa/nextjs:/app  # Mapea tu código al contenedor
+      - /app/node_modules  # Evita conflictos con node_modules en el volumen
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+    #command: npm run dev  # Usa nodemon o node directamente
+    command: sh -c "npm install && npm run dev"
+
+
+  db:
+    image: postgres
+    container_name: postdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: notes_db
+    ports:
+      - "5432:5432"
