@@ -18,4 +18,35 @@ Debes clonar el proyecto en algun directorio de tu computadora, revisa las rutas
 La base de datos es volatil, no tiene volumen (TODO: mejorar para tener persistencia)
 
 
-##docke
+## para levantar y costruir el backend 
+correr 
+
+ - docker-compose up --build 
+
+ ## Ver docuemntacion de la API
+
+ http://localhost:3000/api
+
+## Usando REST API
+
+Puedes utilizar Postman Para cargar las collecciones.
+
+1. Antes de empezar debes crear un usuario  Puede usar create desde la pagina documentacion de la api.
+```
+curl -X 'POST' \
+  'http://localhost:3000/auth/register' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "lolo@eldominio.com",
+  "password": "1234567"
+}'
+``` 
+2. Obtener un token 
+```
+curl -X 'POST' \
+  'http://localhost:3000/auth/login' \
+  -H 'accept: */*' \
+  -d ''
+
+```
