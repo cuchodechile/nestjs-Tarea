@@ -26,3 +26,10 @@ services:
       POSTGRES_DB: notes_db
     ports:
       - "5432:5432"
+
+
+  flutter:
+    image: flutter
+    container_name: flutter-web
+    ports:
+     - 8080:80

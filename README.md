@@ -13,15 +13,15 @@ Esta sobre docker
  - Collection: esta el json que define el collection para postman
  - app-ui: esta la aplicacion flutter de usuario
 
-## Preparacion
+# Preparacion
 Debes clonar el proyecto en algun directorio de tu computadora, revisa las rutas de los volumnes del docker-compose, solo esta para el nodejs
 La base de datos es volatil, no tiene volumen (TODO: mejorar para tener persistencia)
 
 
-## para levantar y costruir el backend 
-correr 
+## Construir y levantar el backend 
+correr para construir
 
- - docker-compose up --build 
+ - docker-compose up --build back-nest
 
  ## Ver docuemntacion de la API
 
@@ -50,3 +50,14 @@ curl -X 'POST' \
   -d ''
 
 ```
+
+## Para Construir el FrontEnd
+
+ - Se debe construir un aplicacion Flutter 
+ - Luego copiar los archivos y directorios del directorio *front-flutter* a la raiz del proyecto flutter
+ - Compilar la aplicacion: flutter build web
+ - Construir la imagen de Docker con el nombre "flutter": docker build -t flutter .  (usar DockerFile del directorio)
+
+
+Ahora puedes levantar el proyecto con docker compose up -d
+

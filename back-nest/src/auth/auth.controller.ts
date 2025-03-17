@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Request, UseGuards, Logger } from '@nestjs/common';
+import { Controller, Post, Body, Request, UseGuards, Logger, HttpCode, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard/jwt-auth.guard';
 import { CreateUserDto } from './create-user.dto';
@@ -21,6 +21,7 @@ export class AuthController {
   }
 */
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   async login(@Body() body: { email: string; password: string }) {
     this.logger.log(` AUTH::LOGIN usuario email: ${body.email}`); 
 
